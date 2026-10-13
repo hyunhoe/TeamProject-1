@@ -3,14 +3,13 @@ import myClass.DB_Element;
 import java.util.*;
 
 /**
- * LibDB 클래스의 설명을 작성하세요.
+ * LibDB : User와 Book의 정보를 저장, 추가, 검색, 출력하는 데이터베이스 클래스
  *
- * @author (작성자 이름)
- * @version (버전 번호 또는 작성한 날짜)
+ * @author (2023320023 이현회)
+ * @version (2026.10.13)
  */
 public class LibDB<T extends DB_Element>
 {
-    // 인스턴스 변수 - 다음의 예제를 사용자에 맞게 변경하세요.
     private ArrayList<T> db;
 
     /**
@@ -22,10 +21,9 @@ public class LibDB<T extends DB_Element>
     }
 
     /**
-     * 예제 메소드 - 이 주석을 사용자에 맞게 바꾸십시오
+     * addElement - 데이터베이스에 요소를 추가하는 메소드
      *
-     * @param  y  메소드의 샘플 파라미터
-     * @return    x 더하기 y의 결과값을 반환
+     * @param  element  추가할 요소
      */
     public void addElement(T element)
     {
@@ -33,10 +31,10 @@ public class LibDB<T extends DB_Element>
     }
 
     /**
-     * 메소드 예제 - 사용자에 맞게 주석을 바꾸십시오.
+     * findElement - 학번 또는 책 이름과 동일한 요소를 데이터베이스에서 찾는 메소드
      *
-     * @param  y  메소드의 샘플 파라미터
-     * @return    x 와 y의 합
+     * @param  ID  학번 또는 책 이름
+     * @return    동일한 요소를 찾은 경우 element를 반환, 찾지 못한 경우 null을 반환
      */
     public T findElement(String ID)
     {
@@ -51,10 +49,7 @@ public class LibDB<T extends DB_Element>
     }
 
     /**
-     * 메소드 예제 - 사용자에 맞게 주석을 바꾸십시오.
-     *
-     * @param  y  메소드의 샘플 파라미터
-     * @return    x 와 y의 합
+     * printAllElements - 데이터베이스의 모든 요소들을 출력하는 메소드
      */
     public void printAllElements()
     {
