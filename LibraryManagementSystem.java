@@ -12,17 +12,17 @@ import java.util.*;
  */
 public class LibraryManagementSystem
 {
-    LibDB<Book> bookDB = new LibDB<>();
-    HashMap<User, Book> loanDB = new HashMap<>();
-    LibDB<User> userDB = new LibDB<>();
-    
+    LibDB<Book> bookDB;
+    HashMap<User, Book> loanDB;
+    LibDB<User> userDB;
+
     /**
      * LibraryManagementSystem 클래스의 객체 생성자
      */
     public LibraryManagementSystem()
     {
-        // 인스턴스 변수 초기화
-        x = 0;
+        userDB = new UserDB();
+        bookDB = new BookDB();
     }
 
     /**
@@ -45,7 +45,6 @@ public class LibraryManagementSystem
      */
     public <T extends DB_Element> void printDB(LibDB<T> db)
     {
-        // 여기에 코드를 작성하세요
         db.printAllElements();
     }
 
@@ -57,10 +56,18 @@ public class LibraryManagementSystem
      */
     public void printLoanList()
     {
-        // 여기에 코드를 작성하세요
-        return y;
+        System.out.println("----- 대출현황 -----");
+        Set<User> userSet = loanDB.keySet();
+        
+        Iterator<User> it = loanDB.keySet().iterator();
+        while(it.hasNext()){
+            User user = it.next();
+            Book book = loanDB.get(user);
+            
+            System.out.println(user + "===>" + book);
+        }
     }
-
+     
     /**
      * 메소드 예제 - 사용자에 맞게 주석을 바꾸십시오.
      *
@@ -72,7 +79,7 @@ public class LibraryManagementSystem
         // 여기에 코드를 작성하세요
         return y;
     }
-    
+
     /**
      * 메소드 예제 - 사용자에 맞게 주석을 바꾸십시오.
      *

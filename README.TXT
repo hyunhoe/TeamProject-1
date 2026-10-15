@@ -4,8 +4,8 @@
 적어도 다음과 같은 내용이 포함되어야합니다.:
 ------------------------------------------------------------------------
 
-프로젝트 제목(PROJECT TITLE):
-프로젝트의 목적(PURPOSE OF PROJECT):
+프로젝트 제목(PROJECT TITLE): PBL#1(3팀)
+프로젝트의 목적(PURPOSE OF PROJECT): 도서관관리시스템 
 버전 또는 작성일자(VERSION or DATE):
 이 프로젝트를 시작하는 방법(HOW TO START THIS PROJECT):
 제작자(AUTHORS):
