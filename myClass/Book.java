@@ -4,10 +4,10 @@ package myClass;
 /**
  * Book 클래스의 설명을 작성하세요.
  *
- * @author (작성자 이름)
- * @version (버전 번호 또는 작성한 날짜)
+ * @author (2024320014_박동해)
+ * @version (2026.10.14)
  */
-public class Book
+public class Book extends DB_Element
 {
     // 인스턴스 변수 - 다음의 예제를 사용자에 맞게 변경하세요.
     private int x;
