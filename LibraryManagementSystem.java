@@ -21,8 +21,9 @@ public class LibraryManagementSystem
      */
     public LibraryManagementSystem()
     {
-        userDB = new UserDB();
-        bookDB = new BookDB();
+        userDB = new LibDB<User>();
+        bookDB = new LibDB<Book>();
+        loanDB = new HashMap<User,Book>();
     }
 
     /**
