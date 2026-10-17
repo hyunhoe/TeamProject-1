@@ -35,8 +35,11 @@ public class LibraryManagementSystem
      */
     public void borrowBook(String userID, String bookID)
     {
-        // 여기에 코드를 작성하세요.
-        return x + y;
+        User user = userDB.findElement(userID);
+        Book book = bookDB.findElement(bookID);
+        if(user != null && book != null){
+            loanDB.put(user, book);
+        }
     }
 
     /**
@@ -78,7 +81,7 @@ public class LibraryManagementSystem
      */
     public LibDB<Book> setBookDB(String bookFile)
     {
-        File bookfile = new File("C:/Windows/Temp/BookData2025.txt");
+        File bookfile = new File(bookFile);
         FileReader fr = new FileReader(bookfile);
         Scanner scan = new Scanner(fr);
         while(scan.hasNext()){
@@ -102,9 +105,9 @@ public class LibraryManagementSystem
      * @param  y  메소드의 샘플 파라미터
      * @return    x 와 y의 합
      */
-    public LibDB<User> setUserDB(String userile)
+    public LibDB<User> setUserDB(String userFile)
     {
-        File userfile = new File("C:/Windows/Temp/UserData2025.txt");
+        File userfile = new File(userFile);
         FileReader fr = new FileReader(userfile);
         Scanner scan = new Scanner(fr);
         while(scan.hasNext()){
