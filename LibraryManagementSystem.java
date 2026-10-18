@@ -3,7 +3,8 @@ import myClass.User;
 import myClass.DB_Element;
 import DataBase.LibDB;
 import java.util.*;
-
+import java.io.*;
+import java.lang.*;
 /**
  * LibraryManagementSystem 클래스의 설명을 작성하세요.
  *
@@ -34,8 +35,11 @@ public class LibraryManagementSystem
      */
     public void borrowBook(String userID, String bookID)
     {
-        // 여기에 코드를 작성하세요.
-        return x + y;
+        User user = userDB.findElement(userID);
+        Book book = bookDB.findElement(bookID);
+        if(user != null && book != null){
+            loanDB.put(user, book);
+        }
     }
 
     /**
@@ -71,14 +75,28 @@ public class LibraryManagementSystem
      
     /**
      * 메소드 예제 - 사용자에 맞게 주석을 바꾸십시오.
-     *
+     * 
      * @param  y  메소드의 샘플 파라미터
      * @return    x 와 y의 합
      */
     public LibDB<Book> setBookDB(String bookFile)
     {
-        // 여기에 코드를 작성하세요
-        return y;
+        File bookfile = new File(bookFile);
+        FileReader fr = new FileReader(bookfile);
+        Scanner scan = new Scanner(fr);
+        while(scan.hasNext()){
+            String word = scan.nextLine();
+            StringTokenizer st = new StringTokenizer(word, "/");
+            
+            String bookID = st.nextToken();
+            String title = st.nextToken();
+            String author = st.nextToken();
+            String publisher = st.nextToken();
+            int year = Integer.parseInt(st.nextToken());
+            
+            Book book = new Book(author, bookID, publisher, title, year);
+            bookDB.addElement(book);
+        }
     }
 
     /**
@@ -87,9 +105,20 @@ public class LibraryManagementSystem
      * @param  y  메소드의 샘플 파라미터
      * @return    x 와 y의 합
      */
-    public LibDB<User> setUserDB(String userile)
+    public LibDB<User> setUserDB(String userFile)
     {
-        // 여기에 코드를 작성하세요
-        return y;
+        File userfile = new File(userFile);
+        FileReader fr = new FileReader(userfile);
+        Scanner scan = new Scanner(fr);
+        while(scan.hasNext()){
+            String word = scan.nextLine();
+            StringTokenizer st = new StringTokenizer(word, "/");
+            
+            int stID = Integer.parseInt(st.nextToken());
+            String name = st.nextToken();
+            
+            User user = new User(stID, name);
+            userDB.addElement(user);
+        }
     }
 }
