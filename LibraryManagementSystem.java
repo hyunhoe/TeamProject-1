@@ -8,8 +8,8 @@ import java.lang.*;
 /**
  * LibraryManagementSystem 클래스의 설명을 작성하세요.
  *
- * @author (작성자 이름)
- * @version (버전 번호 또는 작성한 날짜)
+ * @author (2023320023 이현회)
+ * @version (2026.10.18)
  */
 public class LibraryManagementSystem
 {
@@ -63,16 +63,16 @@ public class LibraryManagementSystem
     {
         System.out.println("----- 대출현황 -----");
         Set<User> userSet = loanDB.keySet();
-        
+
         Iterator<User> it = loanDB.keySet().iterator();
         while(it.hasNext()){
             User user = it.next();
             Book book = loanDB.get(user);
-            
+
             System.out.println(user + "===>" + book);
         }
     }
-     
+
     /**
      * 메소드 예제 - 사용자에 맞게 주석을 바꾸십시오.
      * 
@@ -81,22 +81,30 @@ public class LibraryManagementSystem
      */
     public LibDB<Book> setBookDB(String bookFile)
     {
-        File bookfile = new File(bookFile);
-        FileReader fr = new FileReader(bookfile);
-        Scanner scan = new Scanner(fr);
-        while(scan.hasNext()){
-            String word = scan.nextLine();
-            StringTokenizer st = new StringTokenizer(word, "/");
-            
-            String bookID = st.nextToken();
-            String title = st.nextToken();
-            String author = st.nextToken();
-            String publisher = st.nextToken();
-            int year = Integer.parseInt(st.nextToken());
-            
-            Book book = new Book(author, bookID, publisher, title, year);
-            bookDB.addElement(book);
+        try{
+            File bookfile = new File(bookFile);
+            FileReader fr = new FileReader(bookfile);
+            Scanner scan = new Scanner(fr);
+            while(scan.hasNext()){
+                String word = scan.nextLine();
+                StringTokenizer st = new StringTokenizer(word, "/");
+
+                String bookID = st.nextToken();
+                String title = st.nextToken();
+                String author = st.nextToken();
+                String publisher = st.nextToken();
+                int year = Integer.parseInt(st.nextToken());
+
+                Book book = new Book(author, bookID, publisher, title, year);
+                bookDB.addElement(book);
+            }
+            fr.close();
+            scan.close();
         }
+        catch(IOException e){
+            System.out.println("파일 입력 오류가 발생!");
+        }
+        return bookDB;
     }
 
     /**
@@ -107,18 +115,26 @@ public class LibraryManagementSystem
      */
     public LibDB<User> setUserDB(String userFile)
     {
-        File userfile = new File(userFile);
-        FileReader fr = new FileReader(userfile);
-        Scanner scan = new Scanner(fr);
-        while(scan.hasNext()){
-            String word = scan.nextLine();
-            StringTokenizer st = new StringTokenizer(word, "/");
-            
-            int stID = Integer.parseInt(st.nextToken());
-            String name = st.nextToken();
-            
-            User user = new User(stID, name);
-            userDB.addElement(user);
+        try{
+            File userfile = new File(userFile);
+            FileReader fr = new FileReader(userfile);
+            Scanner scan = new Scanner(fr);
+            while(scan.hasNext()){
+                String word = scan.nextLine();
+                StringTokenizer st = new StringTokenizer(word, "/");
+
+                int stID = Integer.parseInt(st.nextToken());
+                String name = st.nextToken();
+
+                User user = new User(stID, name);
+                userDB.addElement(user);
+            }
+            fr.close();
+            scan.close();
         }
+        catch(IOException e){
+            System.out.println("파일 입력 오류가 발생!");
+        }
+        return userDB;
     }
 }
