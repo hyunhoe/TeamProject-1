@@ -2,34 +2,56 @@ package myClass;
 
 
 /**
- * Book 클래스의 설명을 작성하세요.
+ * 추상 클래스 DB_Element를 상속받는 Book 클래스
  *
  * @author (2024320014_박동해)
  * @version (2026.10.14)
  */
 public class Book extends DB_Element
 {
-    // 인스턴스 변수 - 다음의 예제를 사용자에 맞게 변경하세요.
-    private int x;
+    private String author; 
+    private String bookID; 
+    private String publisher;
+    private String title;
+    private int year;
 
     /**
-     * Book 클래스의 객체 생성자
-     */
-    public Book()
+     * Book 객체를 생성하고 속성을 초기화하는 생성자
+     * 
+     * @param author - 책의 저자
+     * @param bookID - 책의 고유 식별 번호(도서ID)
+     * @param publisher - 출판사
+     * @param title - 책 제목
+     * @param year - 출판년도
+    */
+    public Book(String author, String bookID, 
+    String publisher, String title, int year)
     {
-        // 인스턴스 변수 초기화
-        x = 0;
+        this.author = author;
+        this.bookID = bookID;
+        this.publisher = publisher;
+        this.title = title;
+        this.year = year;
     }
 
     /**
-     * 예제 메소드 - 이 주석을 사용자에 맞게 바꾸십시오
+     * getID 메소드 - 책의 고유 식별자(도서ID)를 반환
+     * @return - bookID 문자열
+     */
+    public String getID()
+    {
+        return bookID;
+    }
+
+    /**
+     * toString 메소드 - 객체의 전체 도서 정보를 문자열 형태로 반환
      *
-     * @param  y  메소드의 샘플 파라미터
-     * @return    x 더하기 y의 결과값을 반환
+     * @return - "(bookID) title, author, publisher, year" 형식의 문자열
      */
-    public int sampleMethod(int y)
+    public String toString()
     {
-        // 여기에 코드를 작성하세요.
-        return x + y;
+        return "(" + bookID + ") " + title + ", " + 
+                author + ", " + publisher + ", " + year;
     }
+
 }
