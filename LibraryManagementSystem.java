@@ -123,10 +123,10 @@ public class LibraryManagementSystem
                 String word = scan.nextLine();
                 StringTokenizer st = new StringTokenizer(word, "/");
 
-                int stID = Integer.parseInt(st.nextToken());
+                int userID = Integer.parseInt(st.nextToken());
                 String name = st.nextToken();
 
-                User user = new User(stID, name);
+                User user = new User(userID, name);
                 userDB.addElement(user);
             }
             fr.close();
