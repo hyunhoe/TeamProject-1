@@ -8,7 +8,7 @@ import java.lang.*;
 /**
  * LibraryManagementSystem : 도서관 이용자와 책의 정보를 관리하는 클래스
  *
- * @author (2023320023 이현회)
+ * @author (2023320023 이현회, 2022320029 이상민)
  * @version (2026.10.19)
  */
 public class LibraryManagementSystem
@@ -30,7 +30,7 @@ public class LibraryManagementSystem
     /**
      * borrowBook - 이용자의 ID와 책의 ID를 검색하고 대출 정보를 등록하는 메소드
      *
-     * @param  userID : 이용자의 학번
+     * @param  userID : 이용자의 번호
      * @param  bookID : 책의 등록번호
      */
     public void borrowBook(String userID, String bookID)
