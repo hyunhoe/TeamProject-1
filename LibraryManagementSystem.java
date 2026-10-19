@@ -69,7 +69,7 @@ public class LibraryManagementSystem
             User user = it.next();
             Book book = loanDB.get(user);
 
-            System.out.println(user + "===>" + book);
+            System.out.println(user + " ===> " + book);
         }
     }
 
