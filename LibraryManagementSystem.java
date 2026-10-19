@@ -6,10 +6,10 @@ import java.util.*;
 import java.io.*;
 import java.lang.*;
 /**
- * LibraryManagementSystem 클래스의 설명을 작성하세요.
+ * LibraryManagementSystem : 도서관 이용자와 책의 정보를 관리하는 클래스
  *
  * @author (2023320023 이현회)
- * @version (2026.10.18)
+ * @version (2026.10.19)
  */
 public class LibraryManagementSystem
 {
@@ -28,10 +28,10 @@ public class LibraryManagementSystem
     }
 
     /**
-     * 예제 메소드 - 이 주석을 사용자에 맞게 바꾸십시오
+     * borrowBook - 이용자의 ID와 책의 ID를 검색하고 대출 정보를 등록하는 메소드
      *
-     * @param  y  메소드의 샘플 파라미터
-     * @return    x 더하기 y의 결과값을 반환
+     * @param  userID : 이용자의 학번
+     * @param  bookID : 책의 등록번호
      */
     public void borrowBook(String userID, String bookID)
     {
@@ -43,10 +43,9 @@ public class LibraryManagementSystem
     }
 
     /**
-     * 메소드 예제 - 사용자에 맞게 주석을 바꾸십시오.
+     * printDB - 데이터베이스에 저장된 모든 요소를 출력하는 메소드
      *
-     * @param  y  메소드의 샘플 파라미터
-     * @return    x 와 y의 합
+     * @param  db  출력할 데이터베이스
      */
     public <T extends DB_Element> void printDB(LibDB<T> db)
     {
@@ -54,17 +53,14 @@ public class LibraryManagementSystem
     }
 
     /**
-     * 메소드 예제 - 사용자에 맞게 주석을 바꾸십시오.
-     *
-     * @param  y  메소드의 샘플 파라미터
-     * @return    x 와 y의 합
+     * printLoanList - 대출 DB에 저장된 대출 현황을 출력하는 메소드
      */
     public void printLoanList()
     {
         System.out.println("----- 대출현황 -----");
         Set<User> userSet = loanDB.keySet();
 
-        Iterator<User> it = loanDB.keySet().iterator();
+        Iterator<User> it = userSet.iterator();
         while(it.hasNext()){
             User user = it.next();
             Book book = loanDB.get(user);
@@ -74,10 +70,10 @@ public class LibraryManagementSystem
     }
 
     /**
-     * 메소드 예제 - 사용자에 맞게 주석을 바꾸십시오.
+     * setBookDB - 책 데이터 파일을 읽어 책 객체 생성 후 DB에 저장하는 메소드
      * 
-     * @param  y  메소드의 샘플 파라미터
-     * @return    x 와 y의 합
+     * @param  bookFile  입력받을 책 데이터 파일의 경로
+     * @return    책 정보를 저장한 DB
      */
     public LibDB<Book> setBookDB(String bookFile)
     {
@@ -108,10 +104,10 @@ public class LibraryManagementSystem
     }
 
     /**
-     * 메소드 예제 - 사용자에 맞게 주석을 바꾸십시오.
+     * setUserDB - 이용자 데이터 파일을 읽어 이용자 객체 생성 후 DB에 저장하는 메소드
      *
-     * @param  y  메소드의 샘플 파라미터
-     * @return    x 와 y의 합
+     * @param  userFile  입력받을 이용자 데이터 파일의 경로
+     * @return    이용자 정보를 저장한 DB
      */
     public LibDB<User> setUserDB(String userFile)
     {

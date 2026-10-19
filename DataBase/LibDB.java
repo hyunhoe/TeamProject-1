@@ -6,7 +6,7 @@ import java.util.*;
  * LibDB : User와 Book의 정보를 저장, 추가, 검색, 출력하는 데이터베이스 클래스
  *
  * @author (2023320023 이현회)
- * @version (2026.10.13)
+ * @version (2026.10.19)
  */
 public class LibDB<T extends DB_Element>
 {
@@ -31,9 +31,9 @@ public class LibDB<T extends DB_Element>
     }
 
     /**
-     * findElement - 학번 또는 책 이름과 동일한 요소를 데이터베이스에서 찾는 메소드
+     * findElement - 학번 또는 책 등록번호와 동일한 요소를 데이터베이스에서 찾는 메소드
      *
-     * @param  ID  학번 또는 책 이름
+     * @param  ID  학번 또는 책 등록번호
      * @return    동일한 요소를 찾은 경우 element를 반환, 찾지 못한 경우 null을 반환
      */
     public T findElement(String ID)
