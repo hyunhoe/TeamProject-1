@@ -1,6 +1,5 @@
 package myClass;
 
-
 /**
  * 추상 클래스 DB_Element를 상속받는 Book 클래스
  *
