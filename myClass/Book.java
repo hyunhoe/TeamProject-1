@@ -22,7 +22,7 @@ public class Book extends DB_Element
      * @param publisher - 출판사
      * @param title - 책 제목
      * @param year - 출판년도
-    */
+     */
     public Book(String author, String bookID, 
     String publisher, String title, int year)
     {
@@ -50,7 +50,7 @@ public class Book extends DB_Element
     public String toString()
     {
         return "(" + bookID + ") " + title + ", " + 
-                author + ", " + publisher + ", " + year;
+        author + ", " + publisher + ", " + year;
     }
 
 }

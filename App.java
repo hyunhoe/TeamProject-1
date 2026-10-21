@@ -27,7 +27,7 @@ public class App
         lms.borrowBook("2025320001", "B02");
         lms.borrowBook("2024320002", "B03");
         lms.borrowBook("2023320003", "B04");
-        
+
         System.out.println();
         lms.printLoanList();
     }
